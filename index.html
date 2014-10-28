@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Photonic Beamforming Testbed by dsriram</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/dsriram/PhotonicBeamforming-Testbed">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/dsriram/PhotonicBeamforming-Testbed/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/dsriram/PhotonicBeamforming-Testbed/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Photonic Beamforming Testbed</h1>
+          <p>A software testbed to assist researchers with simulation of photonic beamforming techniques using OptiSystem</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/dsriram">dsriram</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h3>
+<a name="rf-beamforming" class="anchor" href="#rf-beamforming"><span class="octicon octicon-link"></span></a>RF Beamforming</h3>
+
+<p>In wireless communication systems, as much as the radio modulation technique and its processing techniques are important, the antenna is also important. An antenna is an electrical device that converts electrical signals to radio signals and vice-versa. These radio signals can travel through free-space for a longer distance without the need of any conducting medium (wire) and can be picked up by the antenna at the receiver side. In other words, antennas ‘radiate’ radio signals and are also capable of ‘sensing’ the radio signals in free-space Thus antennas can be called as both the light and the eye that sees it, in a wireless communication.The technology behind the designing and fabrication of antennas is ever evolving and dates back to the very birth of wireless communication techniques.</p>
+
+<p>The intensity of the radiated radio waves in a particular direction depends on the shape and the dimension of the antennas, and hence remains fixed for the given antenna. The plot of the radiation intensity vs the direction is called a radiation pattern. It is desired in a wireless communication to focus the radiated energy in the direction of the receiver to improve the signal to noise ratio of the wireless link. To do this, either we can design an antenna which has focussed radiation ‘beam’ in  the desired direction, or we can use an array of simple antenna elements which for the desired pattern based on constructive and destructive interference of the radio waves in the given direction, forming patterns called lobes.</p>
+
+<p><img src="https://lh4.googleusercontent.com/5Puf0POQEyCOWRxBo_06LmDJGm4caACA_E2L_ymtw_DfkFbF_0ERpIeS5-RQq50CXXQxaSKu5QeBeqyvQrvs2yz1qv4yc7IBVfcr4980y7Hgr_pH0N3iNjbDuLToYObKbg" alt="Beam pattern"></p>
+
+<p>These constructive and destructive interference patterns can be controlled by controlling phase of the electrical signal being fed to the antenna elements. The process is called ‘Beamforming’. The lobe with maximum radiation intensity is called the ‘main’ lobe. The lobe in the opposite direction of the main lobe is called the back lobe. All other lobes are called side lobes.</p>
+
+<p>These lobes/beams can be steered either mechanically or electronically. Mechanical steering involves turning the actual antenna elements together, in order to change the direction of the beam. Electronic steering involves adjusting the phase of the RF signal fed to the antenna, dynamically to shift the interference patterns, and thus changing the direction of the lobes.</p>
+
+<p>Various techniques are used for Beam-forming and Beam-steering by phase shift. The mostly used ones involve use of electronic phase shifters, which are devices capable of providing variable phase shift to the RF signal that passes through them. The amount of phase shift can be controlled electronically, and thus the desired beam pattern in the desired direction can be formed.</p>
+
+<p>Another technique which is gaining popularity in the recent years is to use a time-delay element which introduces path delays in the RF signal’s path. Longer the path, more is the delay. Thus this time delay translates to phase delay, which can be adjusted by controlling the path length. The advantage of using time-delay based beamforming is that, it is frequency independent. </p>
+
+<p>Electronic phase shifters are limited in their operating frequency by the fact that their phase response is not the same for frequencies. Unlike electronics phase shifters, time-delay based phase shifting is independent of the frequency and can be used for wideband RF applications too.</p>
+
+<p>One such technique to introduce time-delay is by modulate an Optical carrier with the RF signal and subject the carrier to a time delay. Since the carrier itself gets delayed, the RF signal too gets delayed. Later the delayed optical signal is demodulated and the delayed/phase shifted RF signal is recovered. This delayed RF signal can then be fed to the antenna elements and be used for beamforming applications. This method is called RF Photonic Beamforming.</p>
+
+<p>The advantage of this method is that the phase shifters can be located at a longer distance from the antenna array, which is particularly advantageous in hostile environments. Also the RF feed, is nothing but silica fiber used for carrying light waves, which are low in cost, less weight and offer low attenuation loss, compared to RF waveguides which are used to carry the RF waves to the antenna.</p>
+
+<p>Of all the advantages, the crown jewel is that, the beam-steering and beam-switching can be performed in such higher speed, which would make the electronic phase shifting or the MEMS phase switching insignificant.</p>
+
+<h3>
+<a name="what-is-this-project-about" class="anchor" href="#what-is-this-project-about"><span class="octicon octicon-link"></span></a>What is this project about?</h3>
+
+<p>There are many ways to simulate an Optical beamforming network. Most of them involves creating ad-hoc software tools required for integrating the Optical domain simulation and RF beamforming characterization and visualization. This project aims to build the necessary software tools for that bridge. For which, the OptiSystem software is chosen as the simulation environment for the OBFN. The software provided here integrates directly with OptiSystem to measure the RF transfer characteristics of the OBFN under simulation, and visualise the resultant radiation pattern, then and there.</p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>Sriram Damodharan (<a href="https://github.com/dsriram" class="user-mention">@dsriram</a>)</p>
+
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Please raise any software related issues and feature requests in the project's 'Issues' page.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
